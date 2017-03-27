@@ -36,7 +36,8 @@ class SecurityPlugin extends Plugin
 
             $privateResources = array(
                 'dashboard' => array('index'),
-                'partners'  => array('index', 'createcustomers')
+                'partners'  => array('index', 'createcustomers','viewall'),
+                'customers' => array('index', 'create')
             );
 
             foreach($privateResources as $resource => $actions)

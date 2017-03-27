@@ -8,16 +8,12 @@ class PartnerElements extends Component
         'customers' => array(
                 'view'=>array(
                     'caption' => 'View all',
-                    'action'  => 'viewcustomers'
+                    'action'  => 'index'
                 ),
                 'create'=>array(
                     'caption' => 'Create',
-                    'action'  => 'createcustomers'
+                    'action'  => 'create'
 
-                ),
-                'edit'=>array(
-                    'caption' => 'Edit',
-                    'action'  => 'editcustomers'
                 )
         ),
         'employees' => array(
@@ -43,7 +39,7 @@ class PartnerElements extends Component
             foreach($event as $action=>$option)
             {
                 echo "<li>";
-                echo $this->tag->linkTo('partners/'.$option['action'], $option['caption']);
+                echo $this->tag->linkTo($partner.'/'.$option['action'], $option['caption']);
                 echo "</li>";
             }
             echo "</ul>";

@@ -10,9 +10,12 @@
         <!-- -->
         <title>AutoBook</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
         <?= $this->tag->stylesheetLink('css/ie10-viewport-bug-workaround.css') ?>
         <?= $this->tag->stylesheetLink('css/dashboard.css') ?>
         <?= $this->tag->stylesheetLink('css/styles.css') ?>
+        <?= $this->tag->stylesheetLink('css/dataTables.bootstrap.min.css') ?>
+
     </head>
     <body>
         <div class="container">
@@ -22,7 +25,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+        <?= $this->tag->javascriptInclude('js/jquery.dataTables.min.js') ?>
+        <?= $this->tag->javascriptInclude('js/dataTable.bootstrap.min.js') ?>
         <?= $this->tag->javascriptInclude('js/holder.min.js') ?>
+        <?= $this->tag->javascriptInclude('js/main.js') ?>
+        <?= $this->tag->javascriptInclude('js/cars.js') ?>
+
     </body>
 </html>

@@ -14,12 +14,11 @@ class PartnersController extends ControllerBase
     }
 
 
-    public function createcustomersAction()
-    {
-        $form = new NewcustomerForm();
 
-        $this->view->form = $form;
-    }
+
+
+
+
 
 
 }

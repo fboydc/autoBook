@@ -1,4 +1,5 @@
 {{ content() }}
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
 
@@ -7,3 +8,5 @@
         </ul>
     </div>
 </nav>
+<h1>Customers</h1>
+ CUSTOMERS GO HERE!
