@@ -151,7 +151,7 @@ class CustomersController extends ControllerBase
 
         if(!$owner->delete())
         {
-            foreach($owner->getMessage() as $message)
+            foreach($owner->getMessages() as $message)
             {
                 $this->flash->error($message);
             }
@@ -162,11 +162,11 @@ class CustomersController extends ControllerBase
             ]);
         }
 
-        $this->flash->success("Company deleted succesfully");
+        $this->flash->success("Customer deleted succesfully");
 
         return $this->dispatcher->forward([
             "controller"    =>  "customers",
-            "action"
+            "action"       => "index"
         ]);
     }
 

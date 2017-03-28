@@ -1,6 +1,6 @@
 <?php
 
-
+use Phalcon\Image\Adapter\Gd as image;
 class VehiclesController extends ControllerBase
 {
 
@@ -83,6 +83,36 @@ class VehiclesController extends ControllerBase
 
 
     public function profileAction($id){
+
+        $vehicle = Vehicles::findFirst($id);
+
+        if(!$vehicle){
+            $this->flash->error("Vehicle was not found!");
+
+            return $this->dispatcher->forward([
+               "controller" => "vehicles",
+                "action" => "index"
+            ]);
+        }
+
+        $this->view->vehicle = $vehicle;
+
+        $images = Vehicleimages::find(['vehicleid'=>$id]);
+        if(sizeof($images) == 0){
+            echo" <ol class=\"carousel-indicators\" id=\"indicators\">";
+            echo "<li data-target=\"#profile_carousel\" data-slide-to=\"0\" class=\"active\"></li>";
+            echo "</ol>";
+            echo " <div class=\"carousel-inner\" role=\"listbox\" id=\"images_content\">";
+            echo "<div class=\"item active\">";
+            echo Phalcon\Tag::image([
+               "src"=>"/img/car-icon.png"
+            ]);
+            echo "</div>";
+            echo "</div>";
+        }else{
+            echo "Images";
+        }
+
 
     }
 }

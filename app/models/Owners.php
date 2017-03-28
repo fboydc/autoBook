@@ -156,4 +156,27 @@ class Owners extends \Phalcon\Mvc\Model
         return ("first: ".$this->first." / last: ".$this->last."\naddress1: ".$this->address1." / address2: ".$this->address2."\nphonenum: ".$this->phonenum." / email: ".$this->email."\nssn: ".$this->ssn." / Date of Birth: ".$this->dob);
     }
 
+
+
+    public function beforeDelete(){
+
+        $vehicles = Vehicles::find([
+            "ownerid = :ownerid:",
+            "bind" => [
+                "ownerid"=>$this->id
+            ]
+        ]);
+
+
+        if(sizeof($vehicles) > 0)
+        {
+            $this->appendMessage(new Phalcon\Mvc\Model\Message("This user has vehicles registered."));
+            return false;
+        }
+    }
+
+
+
+
+
 }

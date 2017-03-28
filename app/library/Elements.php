@@ -61,6 +61,10 @@ class Elements extends Component
             'vehicles' => array(
                 'caption'   => 'Vehicles',
                 'action'    => 'index'
+            ),
+            'projects' => array(
+                'caption' => 'Projects',
+                'action' => 'index'
             )
         )
     );
